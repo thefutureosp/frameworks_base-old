@@ -4053,6 +4053,9 @@
     <!-- stylus gestures support -->
     <string name="stylus_app_not_installed">%s is not installed</string>
 
+    <!-- Notification for Expanded desktop default -->
+    <string name="expanded_mode_default_set">Expanded desktop set to hide StatusBar only. Configure in Power menu settings</string>
+
     <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">enable or disable privacy guard</string>
     <string name="permdesc_changePrivacyGuardState">Allows the application to change whether another application runs with Privacy Guard. When an application is running with Privacy Guard, it will not have access to personal data such as contacts, call logs, or messages.</string>
