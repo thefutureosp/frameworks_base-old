@@ -3046,6 +3046,9 @@ public final class Settings {
           * 11 - Kill App
           * 12 - Last App
           * 13 - Custom App
+          * 14 - Widget viewpager
+          * 15 - QuickSettings shade toggle
+          * 16 - Camera button
           * @hide
           */
 
@@ -3078,6 +3081,20 @@ public final class Settings {
           * @hide
           */
          public static final String KEY_MENU_ACTION = "key_menu_action";
+
+         /**
+          * Action to perform when the camera key is pressed. (Default is 16)
+          * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
+          * @hide
+          */
+         public static final String KEY_CAMERA_ACTION = "key_camera_action";
+
+         /**
+          * Action to perform when the app camera is long-pressed. (Default is 0)
+          * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
+          * @hide
+          */
+         public static final String KEY_CAMERA_LONG_PRESS_ACTION = "key_camera_long_press_action";
 
          /**
           * Action to perform when the menu key is long-pressed.
