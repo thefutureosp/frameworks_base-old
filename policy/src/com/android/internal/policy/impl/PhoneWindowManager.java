@@ -66,6 +66,7 @@ import android.os.UserHandle;
 import android.os.Vibrator;
 import android.provider.Settings;
 
+import com.android.internal.util.cm.TorchConstants;
 import com.android.internal.R;
 import com.android.internal.os.DeviceKeyHandler;
 import com.android.internal.os.IDeviceHandler;
@@ -218,6 +219,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private static final int KEY_ACTION_SEARCH = 3;
     private static final int KEY_ACTION_VOICE_SEARCH = 4;
     private static final int KEY_ACTION_IN_APP_SEARCH = 5;
+    private static final int KEY_ACTION_TORCH = 6;
 
     // Masks for checking presence of hardware keys.
     // Must match values in core/res/res/values/config.xml
@@ -923,6 +925,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case KEY_ACTION_IN_APP_SEARCH:
                 triggerVirtualKeypress(KeyEvent.KEYCODE_SEARCH);
                 break;
+            case KEY_ACTION_TORCH:
+                Intent i = new Intent(TorchConstants.ACTION_TOGGLE_STATE);
+                mContext.sendBroadcast(i);
             default:
                 break;
         }
