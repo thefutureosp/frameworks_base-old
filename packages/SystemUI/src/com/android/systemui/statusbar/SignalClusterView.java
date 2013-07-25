@@ -155,6 +155,32 @@ public class SignalClusterView
 
     public void setColor(ColorUtils.ColorSettingInfo colorInfo) {
         mColorInfo = colorInfo;
+    }
+
+    @Override
+    public void onRtlPropertiesChanged(int layoutDirection) {
+        super.onRtlPropertiesChanged(layoutDirection);
+
+        if (mWifi != null) {
+            mWifi.setImageDrawable(null);
+        }
+        if (mWifiActivity != null) {
+            mWifiActivity.setImageDrawable(null);
+        }
+
+        if (mMobile != null) {
+            mMobile.setImageDrawable(null);
+        }
+        if (mMobileActivity != null) {
+            mMobileActivity.setImageDrawable(null);
+        }
+        if (mMobileType != null) {
+            mMobileType.setImageDrawable(null);
+        }
+
+        if(mAirplane != null) {
+            mAirplane.setImageDrawable(null);
+        }
         apply();
     }
 
@@ -172,7 +198,9 @@ public class SignalClusterView
             }
             mWifi.setImageDrawable(wifiBitmap);
             mWifiActivity.setImageResource(mWifiActivityId);
+
             mWifiGroup.setContentDescription(mWifiDescription);
+            mWifiGroup.setVisibility(View.VISIBLE);
         } else {
             mWifiGroup.setVisibility(View.GONE);
         }
@@ -193,10 +221,13 @@ public class SignalClusterView
                 }
                 mMobile.setImageDrawable(mobileBitmap);
             }
+
             mMobile.setImageResource(mMobileStrengthId);
             mMobileActivity.setImageResource(mMobileActivityId);
             mMobileType.setImageResource(mMobileTypeId);
+
             mMobileGroup.setContentDescription(mMobileTypeDescription + " " + mMobileDescription);
+            mMobileGroup.setVisibility(View.VISIBLE);
         } else {
             mMobileGroup.setVisibility(View.GONE);
         }
@@ -212,7 +243,9 @@ public class SignalClusterView
                 }
                 mAirplane.setImageDrawable(AirplaneBitmap);
             }
+
             mAirplane.setImageResource(mAirplaneIconId);
+            mAirplane.setVisibility(View.VISIBLE);
         } else {
             mAirplane.setVisibility(View.GONE);
         }
