@@ -23,6 +23,7 @@ import com.android.internal.util.Preconditions;
 
 import android.accounts.AccountManager;
 import android.accounts.IAccountManager;
+import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;

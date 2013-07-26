@@ -223,15 +223,11 @@ class BrowserFrame extends Handler {
             // set WebCore native cache size
             ActivityManager am = (ActivityManager) context
                     .getSystemService(Context.ACTIVITY_SERVICE);
-            int defCacheSize = am.getMemoryClass() > 16 ?
-                8 * 1024 * 1024 : 4 * 1024 * 1024;
-            int cacheSize = SystemProperties.getInt("net.webkit.cache.size", defCacheSize);
-            if ((cacheSize < 0) || (cacheSize > (100 * 1024 * 1024))) {
-                cacheSize = defCacheSize;
+            if (am.getMemoryClass() > 16) {
+                sJavaBridge.setCacheSize(8 * 1024 * 1024);
+            } else {
+                sJavaBridge.setCacheSize(4 * 1024 * 1024);
             }
-            sJavaBridge.setCacheSize(cacheSize);
-            // initialize CacheManager
-            CacheManager.init(appContext);
             // create CookieSyncManager with current Context
             CookieSyncManager.createInstance(appContext);
             // create PluginManager with current Context

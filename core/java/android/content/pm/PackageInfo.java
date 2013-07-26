@@ -376,17 +376,15 @@ public class PackageInfo implements Parcelable {
         configPreferences = source.createTypedArray(ConfigurationInfo.CREATOR);
         reqFeatures = source.createTypedArray(FeatureInfo.CREATOR);
         installLocation = source.readInt();
-<<<<<<< HEAD
 
         /* Theme-specific. */
         isThemeApk = (source.readInt() != 0);
         drmProtectedThemeApk = (source.readInt() != 0);
         themeInfos = source.createTypedArray(ThemeInfo.CREATOR);
         lockedZipFilePath = source.readString();
-=======
+
         requiredForAllUsers = source.readInt() != 0;
         restrictedAccountType = source.readString();
         requiredAccountType = source.readString();
->>>>>>> aosp/jb-mr2-dev
     }
 }

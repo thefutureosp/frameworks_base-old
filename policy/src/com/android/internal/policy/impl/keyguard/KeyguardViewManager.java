@@ -295,6 +295,7 @@ public class KeyguardViewManager {
 
     private void maybeCreateKeyguardLocked(boolean enableScreenRotation, boolean force,
             Bundle options) {
+        final boolean isActivity = (mContext instanceof Activity); // for test activity
         if (mKeyguardHost != null) {
             mKeyguardHost.saveHierarchyState(mStateContainer);
         }
@@ -304,10 +305,6 @@ public class KeyguardViewManager {
 
             mKeyguardHost = new ViewManagerHost(mContext);
 
-<<<<<<< HEAD
-            setKeyguardParams();
-            mViewManager.addView(mKeyguardHost, mWindowLayoutParams);
-=======
             int flags = WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
                     | WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR
                     | WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN
@@ -343,7 +340,6 @@ public class KeyguardViewManager {
             lp.setTitle(isActivity ? "KeyguardMock" : "Keyguard");
             mWindowLayoutParams = lp;
             mViewManager.addView(mKeyguardHost, lp);
->>>>>>> aosp/jb-mr2-dev
         }
 
         if (force || mKeyguardView == null) {
