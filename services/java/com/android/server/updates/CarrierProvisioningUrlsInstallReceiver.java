@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009 The Android Open Source Project
+ * Copyright (C) 2012 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,31 +14,11 @@
  * limitations under the License.
  */
 
-package android.renderscript;
+package com.android.server.updates;
 
-import java.lang.Math;
-import android.util.Log;
+public class CarrierProvisioningUrlsInstallReceiver extends ConfigUpdateInstallReceiver {
 
-
-/**
- * Class for exposing the native RenderScript long4 type back to the Android system.
- **/
-public class Long4 {
-    public Long4() {
+    public CarrierProvisioningUrlsInstallReceiver() {
+        super("/data/misc/radio/", "provisioning_urls.xml", "metadata/", "version");
     }
-
-    public Long4(long initX, long initY, long initZ, long initW) {
-        x = initX;
-        y = initY;
-        z = initZ;
-        w = initW;
-    }
-
-    public long x;
-    public long y;
-    public long z;
-    public long w;
 }
-
-
-
