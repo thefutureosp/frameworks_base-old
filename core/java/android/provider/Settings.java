@@ -3440,7 +3440,7 @@ public final class Settings {
             "navigation_ring_targets_1",
             "navigation_ring_targets_2",
 
-    }
+    };
 
     /**
      * Secure system settings, containing system preferences that applications
