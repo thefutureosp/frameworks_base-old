@@ -2874,14 +2874,6 @@ protected WindowManager.LayoutParams getRecentsLayoutParams(LayoutParams layoutP
             cr.registerContentObserver(
                     Settings.System.getUriFor(Settings.System.QS_DYNAMIC_WIFI),
                     false, this);
-                    
-            cr.registerContentObserver(
-                    Settings.System.getUriFor(Settings.System.QUICK_TILES_BG_COLOR),
-                    false, this);
-
-            cr.registerContentObserver(
-                    Settings.System.getUriFor(Settings.System.QUICK_TILES_BG_PRESSED_COLOR),
-                    false, this);                   
         }
     }
 }
