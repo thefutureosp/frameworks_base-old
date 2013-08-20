@@ -22,7 +22,6 @@ import static com.android.internal.util.cm.QSConstants.TILE_AUTOROTATE;
 import static com.android.internal.util.cm.QSConstants.TILE_BATTERY;
 import static com.android.internal.util.cm.QSConstants.TILE_BLUETOOTH;
 import static com.android.internal.util.cm.QSConstants.TILE_BRIGHTNESS;
-import static com.android.internal.util.cm.QSConstants.TILE_CAMERA;
 import static com.android.internal.util.cm.QSConstants.TILE_DELIMITER;
 import static com.android.internal.util.cm.QSConstants.TILE_GPS;
 import static com.android.internal.util.cm.QSConstants.TILE_LOCKSCREEN;
@@ -46,7 +45,6 @@ import static com.android.internal.util.cm.QSUtils.deviceSupportsMobileData;
 import static com.android.internal.util.cm.QSUtils.deviceSupportsUsbTether;
 
 import android.content.BroadcastReceiver;
-import com.android.internal.util.cm.QSUtils;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -67,7 +65,6 @@ import com.android.systemui.quicksettings.BatteryTile;
 import com.android.systemui.quicksettings.BluetoothTile;
 import com.android.systemui.quicksettings.BrightnessTile;
 import com.android.systemui.quicksettings.BugReportTile;
-import com.android.systemui.quicksettings.CameraTile;
 import com.android.systemui.quicksettings.GPSTile;
 import com.android.systemui.quicksettings.InputMethodTile;
 import com.android.systemui.quicksettings.MobileNetworkTile;
@@ -129,7 +126,6 @@ public class QuickSettingsController {
         // Filter items not compatible with device
         boolean bluetoothSupported = deviceSupportsBluetooth();
         boolean mobileDataSupported = deviceSupportsMobileData(mContext);
-        boolean cameraSupported = QSUtils.deviceSupportsCamera();
 
         if (!bluetoothSupported) {
             TILES_DEFAULT.remove(TILE_BLUETOOTH);
@@ -166,11 +162,9 @@ public class QuickSettingsController {
             } else if (tile.equals(TILE_GPS)) {
                 qs = new GPSTile(mContext, this);
             } else if (tile.equals(TILE_BLUETOOTH) && bluetoothSupported) {
-                qs = new BluetoothTile(mContext, inflater, mContainerView, this);
+                qs = new BluetoothTile(mContext, this);
             } else if (tile.equals(TILE_BRIGHTNESS)) {
                 qs = new BrightnessTile(mContext, this, mHandler);
-      } else if (tile.equals(TILE_CAMERA) && cameraSupported) {
-                qs = new CameraTile(mContext, inflater, mContainerView, this, mHandler);                
             } else if (tile.equals(TILE_RINGER)) {
                 qs = new RingerModeTile(mContext, this);
             } else if (tile.equals(TILE_SYNC)) {

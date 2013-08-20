@@ -71,13 +71,10 @@ public class QuickSettingsTile implements OnClickListener {
     }
 
     void updateQuickSettings(){
-        if (tv != null) {
-            tv.setCompoundDrawablesWithIntrinsicBounds(0, mDrawable, 0, 0);
-            tv.setText(mLabel);
-            tv.setTextSize(1, mTileTextSize);
-            if (mTileTextColor != -2) {
-                tv.setTextColor(mTileTextColor);
-            }
+        TextView tv = (TextView) mTile.findViewById(R.id.text);
+        ImageView iv = (ImageView) mTile.findViewById(R.id.image);
+        tv.setText(mLabel);
+        iv.setImageDrawable(mContext.getResources().getDrawable(mDrawable));
     }
 
     void startSettingsActivity(String action) {
@@ -107,11 +104,8 @@ public class QuickSettingsTile implements OnClickListener {
     }
 
     @Override
-    public void onClick(View v) {
-        if (mOnClick != null) {
-            mOnClick.onClick(v);
-        }
-
+    public final void onClick(View v) {
+        mOnClick.onClick(v);
         ContentResolver resolver = mContext.getContentResolver();
         boolean shouldCollapse = Settings.System.getInt(resolver, Settings.System.QS_COLLAPSE_PANEL, 0) == 1;
         if (shouldCollapse || this instanceof DesktopModeTile || this instanceof HybridTile) {
