@@ -2830,181 +2830,6 @@ public final class Settings {
         public static final String LOCKSCREEN_QUICK_UNLOCK = "lockscreen_quick_unlock";
 
         /**
-         *
-         * @hide
-         */
-        public static final String[] SWIPE_RIBBON_COLOR = new String[] {
-            "swipe_ribbon_color_left",
-            "swipe_ribbon_color_right",
-            "swipe_ribbon_color_bottom",
-        };
-        
-        /**
-         *
-         * @hide
-         */
-        public static final String[] RIBBON_LONG_PRESS = new String[] {
-            "ribbon_long_press_left",
-            "ribbon_long_press_right",
-            "ribbon_long_press_bottom",
-        };
-
-        /**
-         *
-         * @hide
-         */
-        public static final String[] RIBBON_LONG_SWIPE = new String[] {
-            "ribbon_long_swipe_left",
-            "ribbon_long_swipe_right",
-            "ribbon_long_swipe_bottom",
-        };
-
-        /**
-         *
-         * @hide
-         */
-        public static final String[] RIBBON_ANIMATION_DURATION = new String[] {
-            "ribbon_animation_duration_left",
-            "ribbon_animation_duration_right",
-            "ribbon_animation_duration_bottom",
-        };
-
-        /**
-         * Ribbon Targets
-         *
-         * @hide
-         */
-        public static final String[] RIBBON_DISMISS = new String[] {
-            "ribbon_left_dismiss",
-            "ribbon_right_dismiss",
-            "ribbon_bottom_dismiss",
-
-        };
-
-        /**
-         *
-         * @hide
-         */
-        public static final String APP_WINDOW_ANIMATION_DURATION = "app_window_animation_duration";
-
-        /**
-         * Ribbon Targets
-         *
-         * @hide
-         */
-        public static final String[] RIBBON_DRAG_HANDLE_WEIGHT = new String[] {
-            "ribbon_drag_handle_weight_left",
-            "ribbon_drag_handle_weight_right",
-            "ribbon_drag_handle_weight_bottom",
-
-        };
-
-        /**
-         *
-         * @hide
-         */
-        public static final String APP_WINDOW_HIDDEN_APPS = "app_window_hidden_apps";
-
-        /**
-         *
-         * @hide
-         */
-        public static final String APP_WINDOW_ANIMATION_TYPE = "app_window_animation_type";
-
-        /**
-         *
-         * @hide
-         */
-        public static final String LAUNCH_APP_ANIMATION = "launch_app_animation";
-
-        /**
-         *
-         * @hide
-         */
-        public static final String APP_WINDOW_SPACING = "app_window_spacing";
-
-        /**
-         * Ribbon Targets
-         *
-         * @hide
-         */
-        public static final String[] RIBBON_DRAG_HANDLE_LOCATION = new String[] {
-            "ribbon_drag_handle_location_left",
-            "ribbon_drag_handle_location_right",
-            "ribbon_drag_handle_location_bottom",
-
-        };
-
-        /**
-         * Ribbon Targets
-         *
-         * @hide
-         */
-        public static final String[] RIBBON_HIDE_IME = new String[] {
-            "ribbon_hide_ime_left",
-            "ribbon_hide_ime_right",
-            "ribbon_hide_ime_bottom",
-
-        };
-
-        /**
-         * Ribbon Targets
-         *
-         * @hide
-         */
-        public static final String[] RIBBON_TOGGLE_BUTTON_LOCATION = new String[] {
-            "ribbon_toggle_button_location_left",
-            "ribbon_toggle_button_location_right",
-            "ribbon_toggle_button_location_bottom",
-
-        };
-
-        /**
-         * Ribbon Targets
-         *
-         * @hide
-         */
-        public static final String[] RIBBON_ANIMATION_TYPE = new String[] {
-            "ribbon_animation_type_left",
-            "ribbon_animation_type_right",
-            "ribbon_animation_type_bottom",
-        };
-
-        /**
-         * Ribbon Targets
-         *
-         * @hide
-         */
-        public static final String[] SWIPE_RIBBON_VIBRATE = new String[] {
-            "swipe_ribbon_vibrate_left",
-            "swipe_ribbon_vibrate_right",
-            "swipe_ribbon_vibrate_bottom",
-
-        /**
-         * Ribbon Targets
-         *
-         * @hide
-         */
-        public static final String[] RIBBON_DRAG_HANDLE_HEIGHT = new String[] {
-            "ribbon_drag_handle_height_left",
-            "ribbon_drag_handle_height_right",
-            "ribbon_drag_handle_height_bottom",
-
-        };
-
-        /**
-         * Ribbon Targets
-         *
-         * @hide
-         */
-        public static final String[] RIBBON_DRAG_HANDLE_OPACITY = new String[] {
-            "ribbon_drag_handle_opacity_left",
-            "ribbon_drag_handle_opacity_right",
-            "ribbon_drag_handle_opacity_bottom",
-
-        };
-
-        /**
          * Allows lockscreen to show homescreen widgets
          * The value is boolean (1 or 0).
          * @hide
@@ -3416,7 +3241,6 @@ public final class Settings {
             QUIET_HOURS_MUTE,
             QUIET_HOURS_STILL,
             QUIET_HOURS_DIM,
-<<<<<<< HEAD
             VIBRATE_WHEN_RINGING
         };
 
@@ -3434,7 +3258,6 @@ public final class Settings {
             NAV_GLOW_COLOR,
             STATUS_BAR_COLOR,
             STATUS_ICON_COLOR
-=======
             SYSTEM_PROFILES_ENABLED,
             POWER_MENU_SCREENSHOT_ENABLED,
             POWER_MENU_REBOOT_ENABLED,
@@ -3449,7 +3272,6 @@ public final class Settings {
             PHONE_BLACKLIST_PRIVATE_NUMBER_MODE,
             PHONE_BLACKLIST_UNKNOWN_NUMBER_MODE,
             PHONE_BLACKLIST_REGEX_ENABLED,
->>>>>>> 4af68cd... Framework: Generic Blacklist support (4 of 5)
         };
 
         // Settings moved to Settings.Secure
@@ -3689,7 +3511,17 @@ public final class Settings {
          */
         public static final String NOTIFICATION_CONVERT_SOUND_TO_VIBRATION = "convert_sound_to_vibration";
 
-    }
+        /**
+         * Custom navring actions
+         *
+         * @hide
+         */
+        public static final String[] NAVIGATION_RING_TARGETS = new String[] {
+            "navigation_ring_targets_0",
+            "navigation_ring_targets_1",
+            "navigation_ring_targets_2",
+
+    };
 
     /**
      * Secure system settings, containing system preferences that applications
