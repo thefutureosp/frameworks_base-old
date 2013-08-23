@@ -1117,7 +1117,7 @@ public class Halo extends FrameLayout implements Ticker.TickerCallback, TabletTi
                                 public void onAnimationUpdate(ValueAnimator animation) {
                                     pingRadius = (int)((pingMaxRadius - pingMinRadius) *
                                             animation.getAnimatedFraction()) + pingMinRadius;
-                                    invalidate();
+                                    postInvalidate();
                                 }});
 
                     // prevent ping spam            
@@ -1217,7 +1217,6 @@ public class Halo extends FrameLayout implements Ticker.TickerCallback, TabletTi
             }
 
             // Content
-            state = canvas.save();
             final int tickerHeight = mHaloTickerWrapper.getMeasuredHeight();
             int ch = mGesture == Gesture.TASK ? 0 : tickerHeight / 2;
             int cw = mHaloTickerWrapper.getMeasuredWidth();
@@ -1311,6 +1310,7 @@ public class Halo extends FrameLayout implements Ticker.TickerCallback, TabletTi
             mHaloBubble.draw(canvas);
             canvas.restoreToCount(state);
 
+
             // Number
             if (mState == State.IDLE || mState == State.GESTURES) {
                 state = canvas.save();
@@ -1342,9 +1342,6 @@ public class Halo extends FrameLayout implements Ticker.TickerCallback, TabletTi
         mEffect.msgNumberFlipAnimator.cancel(true);
         mEffect.tickerAnimator.cancel(true);
         mEffect.mHaloNumber.setAlpha(0f);
-        mEffect.mHaloCount.setAlpha(0f);
-        mEffect.mHaloPinned.setAlpha(0f);
-        mEffect.mHaloSystemIcon.setAlpha(0f);
         mEffect.mHaloNumberIcon.setAlpha(0f);
         mContentIntent = null;
         mCurrentNotficationEntry = null;
@@ -1396,7 +1393,7 @@ public class Halo extends FrameLayout implements Ticker.TickerCallback, TabletTi
         if (entry.notification.getPackageName().equals("com.paranoid.halo")) {
             msgType = HaloProperties.MessageType.PINNED;
         } else if (!entry.notification.isClearable()) {
-            msgType = HaloProperties.MessageType.SYSTEM;
+            msgType = HaloProperties.MessageType.PINNED;
         } else {
             msgType = HaloProperties.MessageType.MESSAGE;
         }
@@ -1573,8 +1570,7 @@ public class Halo extends FrameLayout implements Ticker.TickerCallback, TabletTi
             // When screen unlocked, HALO active & Expanded desktop mode, ping HALO and load last notification.
             // Because notifications are not readily visible and HALO does not "tick" on protected lock screens
             if(intent.getAction().equals(Intent.ACTION_USER_PRESENT) &&
-                    Settings.System.getInt(mContext.getContentResolver(), Settings.System.HALO_ACTIVE, 0) == 1 &&
-                    mState != State.SILENT) {
+                    Settings.System.getInt(mContext.getContentResolver(), Settings.System.HALO_ACTIVE, 0) == 1) {
                 if (mKeyguardManager.isKeyguardSecure() ||
                         (Settings.System.getInt(mContext.getContentResolver(), Settings.System.EXPANDED_DESKTOP_STATE, 0) == 1 &&
                                 mState == State.HIDDEN)) {
